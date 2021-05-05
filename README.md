@@ -144,123 +144,124 @@ There are two steps:
     1. This query shows the number of webpages loaded / hour:
        ```
        select * from metahtml_rollup_insert order by insert_hour desc limit 100;
-  
-	 hll_count |  url  | hostpathquery | hostpath | host  |      insert_hour       
-	-----------+-------+---------------+----------+-------+------------------------
-		 6 | 32119 |         33960 |    23988 |     6 | 2021-05-05 14:00:00+00
-		 7 | 76966 |         77933 |    65045 | 15545 | 2021-05-05 13:00:00+00
-		 7 | 41920 |         40758 |    34071 | 11333 | 2021-05-05 12:00:00+00
-		 4 | 82351 |         82422 |    80674 | 72990 | 2021-05-04 02:00:00+00
-		 4 | 39144 |         39281 |    37117 | 33587 | 2021-05-04 01:00:00+00
-	```
-	end
+  	```
+	| hll_count |  url  | hostpathquery | hostpath | host  |      insert_hour      | 
+	|-----------|-------|---------------|----------|-------|------------------------|
+	|	 6 | 32119 |         33960 |    23988 |     6 | 2021-05-05 14:00:00+00|
+	|	 7 | 76966 |         77933 |    65045 | 15545 | 2021-05-05 13:00:00+00|
+	|	 7 | 41920 |         40758 |    34071 | 11333 | 2021-05-05 12:00:00+00|
+	|	 4 | 82351 |         82422 |    80674 | 72990 | 2021-05-04 02:00:00+00|
+	|	 4 | 39144 |         39281 |    37117 | 33587 | 2021-05-04 01:00:00+00|
+	
+	
     1. This query shows the hostnames that you have downloaded the most webpages from:
     
        ```
        select * from metahtml_rollup_host order by hostpath desc limit 100;
-       
- 	 url  | hostpathquery | hostpath |            host            
-	-------+---------------+----------+----------------------------
-	 13350 |         13475 |    13363 | com,apnews)
-	 13355 |         13601 |    13345 | com,pinterest)
-	 12375 |         12354 |    12199 | com,fivethirtyeight)
-	 10941 |         11189 |    11185 | com,deadspin)
-	 10769 |         10722 |     6134 | com,nytimes)
-	 14960 |         15277 |      794 | com,bing)
-	    82 |            82 |       58 | com,mlb)
-	    57 |            57 |       57 | org,wikipedia,en)
-	    54 |            54 |       54 | com,popsugar)
-	    51 |            51 |       51 | com,agoda)
-	    81 |            81 |       48 | com,atgstores)
-	    47 |            47 |       47 | com,stackoverflow)
-	    46 |            46 |       46 | com,tripadvisor)
-	    46 |            46 |       46 | com,gamefaqs)
-	    46 |            46 |       46 | com,society6)
-	    46 |            46 |       46 | com,dollartree)
-	    45 |            45 |       45 | edu,cornell,law)
-	    44 |            44 |       44 | net,sourceforge)
-	    43 |            43 |       43 | org,worldcat)
-	    42 |            42 |       42 | jp,tripadvisor)
-	    42 |            42 |       42 | com,grouprecipes)
-	    44 |            44 |       41 | org,marylandpublicschools)
-	    40 |            40 |       40 | com,pandora)
-	    40 |            40 |       40 | fr,tripadvisor)
-	    40 |            40 |       40 | com,packersproshop)
-	    40 |            40 |       40 | com,orientaltrading)
-	    40 |            40 |       40 | com,theguardian)
-	    40 |            40 |       40 | com,ajmadison)
-	    40 |            40 |       40 | com,6pm)
-	    40 |            40 |       40 | com,vimeo)
-	    60 |            60 |       39 | com,cnet)
-	    41 |            41 |       38 | com,go,espn)
-	    37 |            37 |       37 | com,imdb)
-	    39 |            39 |       37 | com,barnesandnoble)
-	    37 |            37 |       37 | com,utsandiego)
-	    36 |            36 |       36 | net,worldcosplay)
-	    35 |            35 |       35 | tw,com,tripadvisor)
-	    35 |            35 |       35 | com,landsend)
-	    35 |            35 |       35 | com,scribdassets,imgv2-3)
-	    35 |            35 |       35 | kr,co,tripadvisor)
-	    39 |            39 |       34 | com,motorsport)
-	    34 |            34 |       34 | com,washingtontimes)
-	    34 |            34 |       34 | org,wikipedia,de)
-	    50 |            50 |       34 | com,bloomberg)
-	    34 |            34 |       34 | br,com,tripadvisor)
-	    42 |            42 |       33 | com,snagajob)
-	    33 |            33 |       33 | org,eol)
-	    33 |            33 |       33 | com,zappos)
-	    33 |            33 |       33 | com,scribdassets,imgv2-4)
-	    33 |            33 |       33 | com,eastbay)
-	    35 |            35 |       33 | com,walmart)
-	    33 |            33 |       32 | com,oxforddictionaries)
-	    32 |            32 |       32 | net,slideshare)
-	    32 |            32 |       32 | org,apache,mail-archives)
-	    32 |            32 |       32 | com,upi)
-	    32 |            32 |       32 | com,aceshowbiz)
-	    32 |            32 |       32 | com,imgur)
-	    32 |            32 |       32 | com,modelmayhem)
-	    32 |            32 |       32 | com,twopeasinabucket)
-	    32 |            32 |       32 | com,terrysvillage)
-	    32 |            32 |       32 | com,justjared)
-	    31 |            31 |       31 | com,oracle,docs)
-	    32 |            32 |       31 | com,reverbnation)
-	    34 |            34 |       31 | com,craftsy)
-	    32 |            32 |       31 | com,dpreview)
-	    31 |            31 |       31 | com,cnn)
-	    31 |            31 |       31 | com,bigstockphoto)
-	    31 |            31 |       31 | com,scribdassets,imgv2-2)
-	    36 |            36 |       31 | com,ocregister)
-	    31 |            31 |       31 | id,co,tripadvisor)
-	    31 |            31 |       31 | com,opticsplanet)
-	    31 |            31 |       31 | com,cricketarchive)
-	    33 |            33 |       31 | com,cnbc)
-	    30 |            30 |       30 | com,tennisplaza)
-	    30 |            30 |       30 | es,tripadvisor)
-	    30 |            30 |       30 | se,tripadvisor)
-	    36 |            36 |       30 | org,summitpost)
-	    30 |            30 |       30 | gr,com,tripadvisor)
-	    30 |            30 |       30 | com,gilt)
-	    30 |            30 |       30 | com,basspro)
-	    30 |            30 |       30 | de,tripadvisor)
-	    30 |            30 |       30 | org,wikipedia,es)
-	    29 |            29 |       29 | ve,com,tripadvisor)
-	    29 |            29 |       29 | com,pbase)
-	    35 |            35 |       29 | com,nordstrom,shop)
-	    29 |            29 |       29 | com,tmz)
-	    39 |            39 |       29 | com,musicnotes)
-	    29 |            29 |       29 | com,flightaware)
-	    29 |            29 |       29 | ru,tripadvisor)
-	    29 |            29 |       29 | gov,epa,yosemite)
-	    28 |            28 |       28 | com,iheart)
-	    28 |            28 |       28 | cl,tripadvisor)
-	    30 |            30 |       28 | com,tvguide)
-	    28 |            28 |       28 | com,grainger)
-	    28 |            28 |       28 | com,oyster)
-	    28 |            28 |       28 | com,sporcle)
-	    28 |            28 |       28 | com,ebaumsworld)
-	    31 |            31 |       28 | com,cars)
-	    28 |            28 |       28 | com,dnb)
-	    31 |            31 |       28 | com,godlikeproductions)
+       ```
+ 	| url  | hostpathquery | hostpath |            host            |
+	|-------|---------------|----------|---------------------------|
+	| 13350 |         13475 |    13363 | com,apnews)|
+	| 13355 |         13601 |    13345 | com,pinterest)|
+	| 12375 |         12354 |    12199 | com,fivethirtyeight)|
+	| 10941 |         11189 |    11185 | com,deadspin)|
+	| 10769 |         10722 |     6134 | com,nytimes)|
+	| 14960 |         15277 |      794 | com,bing)|
+	|    82 |            82 |       58 | com,mlb)|
+	|    57 |            57 |       57 | org,wikipedia,en)|
+	|    54 |            54 |       54 | com,popsugar)|
+	|    51 |            51 |       51 | com,agoda)|
+	|    81 |            81 |       48 | com,atgstores)|
+	|    47 |            47 |       47 | com,stackoverflow)|
+	|    46 |            46 |       46 | com,tripadvisor)|
+	|   46 |            46 |       46 | com,gamefaqs)|
+	|    46 |            46 |       46 | com,society6)|
+	|    46 |            46 |       46 | com,dollartree)|
+	|    45 |            45 |       45 | edu,cornell,law)|
+	|    44 |            44 |       44 | net,sourceforge)|
+	|    43 |            43 |       43 | org,worldcat)|
+	|    42 |            42 |       42 | jp,tripadvisor)|
+	|    42 |            42 |       42 | com,grouprecipes)|
+	|    44 |            44 |       41 | org,marylandpublicschools)|
+	|    40 |            40 |       40 | com,pandora)|
+	|    40 |            40 |       40 | fr,tripadvisor)|
+	|    40 |            40 |       40 | com,packersproshop)|
+	|    40 |            40 |       40 | com,orientaltrading)|
+	|    40 |            40 |       40 | com,theguardian)|
+	|    40 |            40 |       40 | com,ajmadison)|
+	|    40 |            40 |       40 | com,6pm)|
+	|    40 |            40 |       40 | com,vimeo)|
+	|    60 |            60 |       39 | com,cnet)|
+	|    41 |            41 |       38 | com,go,espn)|
+	|    37 |            37 |       37 | com,imdb)|
+	|    39 |            39 |       37 | com,barnesandnoble)|
+	|    37 |            37 |       37 | com,utsandiego)|
+	|    36 |            36 |       36 | net,worldcosplay)|
+	|    35 |            35 |       35 | tw,com,tripadvisor)|
+	|    35 |            35 |       35 | com,landsend)|
+	|    35 |            35 |       35 | com,scribdassets,imgv2-3)|
+	|    35 |            35 |       35 | kr,co,tripadvisor)|
+	|    39 |            39 |       34 | com,motorsport)|
+	|    34 |            34 |       34 | com,washingtontimes)|
+	|    34 |            34 |       34 | org,wikipedia,de)|
+	|    50 |            50 |       34 | com,bloomberg)|
+	|    34 |            34 |       34 | br,com,tripadvisor)|
+	|    42 |            42 |       33 | com,snagajob)|
+	|    33 |            33 |       33 | org,eol)|
+	|    33 |            33 |       33 | com,zappos)|
+	|    33 |            33 |       33 | com,scribdassets,imgv2-4)|
+	|    33 |            33 |       33 | com,eastbay)|
+	|    35 |            35 |       33 | com,walmart)|
+	|    33 |            33 |       32 | com,oxforddictionaries)|
+	|    32 |            32 |       32 | net,slideshare)|
+	|    32 |            32 |       32 | org,apache,mail-archives)|
+	|    32 |            32 |       32 | com,upi)|
+	|    32 |            32 |       32 | com,aceshowbiz)|
+	|    32 |            32 |       32 | com,imgur)|
+	|    32 |            32 |       32 | com,modelmayhem)|
+	|    32 |            32 |       32 | com,twopeasinabucket)|
+	|    32 |            32 |       32 | com,terrysvillage)|
+	|    32 |            32 |       32 | com,justjared)|
+	|    31 |            31 |       31 | com,oracle,docs)|
+	|    32 |            32 |       31 | com,reverbnation)|
+	|    34 |            34 |       31 | com,craftsy)|
+	|    32 |            32 |       31 | com,dpreview)|
+	|    31 |            31 |       31 | com,cnn)|
+	|    31 |            31 |       31 | com,bigstockphoto)|
+	|    31 |            31 |       31 | com,scribdassets,imgv2-2)|
+	|    36 |            36 |       31 | com,ocregister)|
+	|    31 |            31 |       31 | id,co,tripadvisor)|
+	|    31 |            31 |       31 | com,opticsplanet)|
+	|    31 |            31 |       31 | com,cricketarchive)|
+	|    33 |            33 |       31 | com,cnbc)|
+	|    30 |            30 |       30 | com,tennisplaza)|
+	|    30 |            30 |       30 | es,tripadvisor)|
+	|    30 |            30 |       30 | se,tripadvisor)|
+	|    36 |            36 |       30 | org,summitpost)|
+	|    30 |            30 |       30 | gr,com,tripadvisor)|
+	|    30 |            30 |       30 | com,gilt)|
+	|    30 |            30 |       30 | com,basspro)|
+	|    30 |            30 |       30 | de,tripadvisor)|
+	|    30 |            30 |       30 | org,wikipedia,es)|
+	|    29 |            29 |       29 | ve,com,tripadvisor)|
+	|    29 |            29 |       29 | com,pbase)|
+	|    35 |            35 |       29 | com,nordstrom,shop)| 
+	|    29 |            29 |       29 | com,tmz)|
+	|    39 |            39 |       29 | com,musicnotes)|
+	|    29 |            29 |       29 | com,flightaware)|
+	|    29 |            29 |       29 | ru,tripadvisor)|
+	|    29 |            29 |       29 | gov,epa,yosemite)|
+	|    28 |            28 |       28 | com,iheart)|
+	|    28 |            28 |       28 | cl,tripadvisor)|
+	|    30 |            30 |       28 | com,tvguide)|
+	|    28 |            28 |       28 | com,grainger)|
+	|    28 |            28 |       28 | com,oyster)|
+	|    28 |            28 |       28 | com,sporcle)|
+	|    28 |            28 |       28 | com,ebaumsworld)|
+	|    31 |            31 |       28 | com,cars)|
+	|    28 |            28 |       28 | com,dnb)|
+	|    31 |            31 |       28 | com,godlikeproductions)|
+	    
 	```
 
 1. Take a screenshot of an interesting search result.
